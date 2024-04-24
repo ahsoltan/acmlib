@@ -1,0 +1,43 @@
+# Data structures
+BIT (1D/2D)
+
+# Graphs
+DMST
+Link-cut tree
+
+# Math
+Polynomial operations
+Modular arithmetic (GCD/CRT/LDE/Garner)
+Number theory (Miller-Rabin/Pollard)
+Algebra (SLE/Determinant/Linear recurrences)
+
+# Strings
+Suffix automaton
+Palindrome tree
+
+# Geometry
+Point
+Line intersection
+
+# Modify
+Cleanup Manacher
+Cleanup suffix array
+Other NTT modulos
+Shorter code (manually formated)
+Cleanup TEX (generate descriptions from files)
+
+# Theorems
+Erdos-Gallai, Gale-Ryser
+Matrix tree theorem
+Lagrange multipliers
+
+# Libraries
+https://github.com/ecnerwala/cp-book/
+https://github.com/dacin21/dacin21_codebook
+https://github.com/nealwu/competitive-programming
+https://github.com/the-tourist/algo
+https://github.com/bqi343/cp-notebook
+https://github.com/kth-competitive-programming/kactl
+https://github.com/cuber2460/acmlib07/
+https://mimuw.edu.pl/~ms360974/treningi/ACMLib.pdf
+https://github.com/tonowak/acmlib
