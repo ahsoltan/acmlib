@@ -1,3 +1,7 @@
+/**
+ * Czas: O(m \sqrt{n})
+ */
+
 struct matching {
   int n, m;
   vector<vector<int>> adj;
@@ -11,7 +15,9 @@ struct matching {
     pa.resize(m, -1);
     it.resize(n);
   }
-  void add_edge(int u, int v) { adj[u].push_back(v); }
+  void add_edge(int u, int v) {
+    adj[u].push_back(v);
+  }
   bool bfs() {
     bool res = false;
     lvl.assign(n, -1);
@@ -53,7 +59,7 @@ struct matching {
     while (bfs()) {
       it.assign(n, 0);
       for (int i = 0; i < n; i++) {
-        if (pb[i] == -1 && dfs(i)) { ans++; }
+        if (pb[i] == -1 && dfs(i)) ans++;
       }
     }
     return ans;

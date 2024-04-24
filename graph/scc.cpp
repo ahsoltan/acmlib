@@ -1,3 +1,7 @@
+/**
+ * Czas: O(n + m)
+ */
+
 struct SCC {
   int n, cnt = 0;
   vector<vector<int>> adj;
@@ -11,7 +15,9 @@ struct SCC {
     low.resize(n);
     in.resize(n, -1);
   }
-  void add_edge(int u, int v) { adj[u].push_back(v); }
+  void add_edge(int u, int v) {
+    adj[u].push_back(v);
+  }
   void dfs(int u) {
     low[u] = in[u] = tour++;
     st.push(u);
@@ -36,8 +42,8 @@ struct SCC {
   }
   void build() {
     for (int i = 0; i < n; ++i) {
-      if (in[i] == -1) { dfs(i); }
+      if (in[i] == -1) dfs(i);
     }
-    for (int i = 0; i < n; i++) { p[i] = cnt - 1 - p[i]; }
+    for (int i = 0; i < n; i++) p[i] = cnt - 1 - p[i];
   }
 };

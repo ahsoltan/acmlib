@@ -1,5 +1,10 @@
-#include <ext/pb_ds/priority_queue.hpp>
+/**
+ * Stosowanie: Jeżeli są ujemne krawędzie, przed pusczeniem `flow` w `dst`
+ * trzeba policzyć najkrótsze ścieżki z `s` i puścić `reduce(t)`.
+ * Czas: O(F m \log n)
+ */
 
+#include <ext/pb_ds/priority_queue.hpp>
 ll INF64 = 2e18;
 struct MCMF {
   struct edge {
@@ -25,8 +30,7 @@ struct MCMF {
     id.resize(n);
   }
   void add_edge(int u, int v, int cap, int cost) {
-    int i = ssize(adj[u]);
-    int j = ssize(adj[v]) + (u == v);
+    int i = ssize(adj[u]), j = ssize(adj[v]) + (u == v);
     adj[u].push_back({v, j, cap, cost});
     adj[v].push_back({u, i, 0, -cost});
   }

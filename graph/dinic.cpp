@@ -1,3 +1,7 @@
+/**
+ * Czas: O(nm \log U)
+ */
+
 struct dinic {
   struct edge {
     int to, rev;
@@ -14,8 +18,7 @@ struct dinic {
     it.resize(n);
   }
   void add_edge(int u, int v, int cap) {
-    int i = ssize(adj[u]);
-    int j = ssize(adj[v]) + (u == v);
+    int i = ssize(adj[u]), j = ssize(adj[v]) + (u == v);
     adj[u].push_back({v, j, cap});
     adj[v].push_back({u, i, 0});
   }
@@ -30,14 +33,14 @@ struct dinic {
         if (e.cap >= r && lvl[e.to] == -1) {
           lvl[e.to] = lvl[u] + 1;
           q.push_back(e.to);
-          if (e.to == t) { return true; }
+          if (e.to == t) return true;
         }
       }
     }
     return false;
   }
   ll dfs(int u, int t, ll cap) {
-    if (u == t) { return cap; }
+    if (u == t) return cap;
     ll f = 0;
     for (int& i = it[u]; i < ssize(adj[u]); i++) {
       edge& e = adj[u][i];
@@ -47,7 +50,7 @@ struct dinic {
         adj[e.to][e.rev].cap += add;
         f += add;
       }
-      if (f == cap) { return f; }
+      if (f == cap) return f;
     }
     lvl[u] = -1;
     return f;
