@@ -1,11 +1,17 @@
 /**
+ * Stosowanie: Liczby NTT-pierwsze:
+ * $(998244353, 3)$ -- $2^{23}$,
+ * $(754974721, 11)$ -- $2^{24}$,
+ * $(167772161, 3)$ -- $2^{25}$,
+ * $(469762049, 3)$ -- $2^{26}$.
  * Czas: O((n + m) \log (n + m))
  */
 
+const int ROOT = 3;
 void ntt(vector<mint>& a) {
   int n = ssize(a), d = __lg(n);
   vector<mint> w(n);
-  mint ww = 1, r = mint(3).pow(119 * (1 << (23 - d)));
+  mint ww = 1, r = mint(ROOT).pow((MOD - 1) / n);
   for (int i = 0; i < n / 2; i++) {
     w[i + n / 2] = ww;
     ww *= r;
