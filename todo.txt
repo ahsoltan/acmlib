@@ -4,13 +4,12 @@ Line intersection
 Segment intersection
 
 Theorems:
-Erdos-Gallai, Gale-Ryser
 Kirchhoff
-Lagrange multipliers
 
 Modify:
 Cleanup Manacher, suffix array
-Add fancy headers to PDF
+Add fancy headers to PDF?
+Reorganize PDF?
 
 Sources:
 https://github.com/ecnerwala/cp-book/
