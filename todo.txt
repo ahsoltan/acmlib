@@ -1,5 +1,4 @@
 Geometry:
-Point
 Planar graph faces
 Line intersection
 Segment intersection
