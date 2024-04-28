@@ -10,9 +10,9 @@ pair<pt, pt> tangents(const vector<pt>& p, pt a) {
     auto dir = [&](int i) {
       pt u = p[i] - a;
       pt v = p[i < n - 1 ? i + 1 : 0] - a;
-      ld c = cross(u, v);
-      if (abs(c) > EPS) return c < 0;
-      if (dot(u, v) > EPS) return norm(u) > norm(v);
+      ll c = cross(u, v);
+      if (c != 0) return c < 0;
+      if (dot(u, v) > 0) return norm(u) > norm(v);
       return true;
     };
     auto dirx = [&](int i) { return dir(i) ^ it; };
@@ -27,7 +27,7 @@ pair<pt, pt> tangents(const vector<pt>& p, pt a) {
       if (dirx(s[x ^ 1]) == (x ^ 1)) {
         s[x] = mid;
       } else {
-        ((cross(p[mid] - a, p[s[1]] - a) < -EPS) ^ it
+        ((cross(p[mid] - a, p[s[1]] - a) < 0) ^ it
              ? s[x]
              : s[x ^ 1]) = mid;
       }
