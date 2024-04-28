@@ -4,12 +4,14 @@ Line intersection
 Segment intersection
 
 Theorems:
-Kirchhoff
+Matrix tree theorem
 
 Modify:
-Cleanup Manacher, suffix array
-Add fancy headers to PDF?
-Reorganize PDF?
+Shorten Manacher, SuffixArray
+Use PascalCase for struct names
+Add fancy headers to PDF
+(?) Use edge list in Dinic/MCMF
+(?) Reorganize PDF
 
 Sources:
 https://github.com/ecnerwala/cp-book/
