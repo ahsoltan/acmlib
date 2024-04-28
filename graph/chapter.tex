@@ -1,8 +1,8 @@
 \section{Grafy}
 
 \subsection{Przepływy}
-\cfile{dinic.cpp}
-\cfile{mcmf.cpp}
+\cfile{Dinic.h}
+\cfile{MCMF.h}
 
 \subsubsection{Przepływy z wymaganiami}
 Szukamy przepływu $\leq F$ takiego, że $f_i \geq d_i$ dla każdej krawędzi.
@@ -15,7 +15,7 @@ Następnie dodajemy krawędzie
 Przepływ spełnia wymagania jeżeli maksymalnie wypełnia wszystkie krawędzie $s'$.
 
 \subsection{Grafy dwudzielne}
-\cfile{matching.cpp}
+\cfile{Matching.h}
 
 \subsubsection{Twierdzenie K\"oniga}
 W grafie dwudzielnym zachodzi
@@ -39,7 +39,7 @@ prosty graf dwudzielny wtw gdy $\sum a_i = \sum b_i$ oraz dla każdego $1 \leq k
 \]
 
 \subsection{Grafy skierowane}
-\cfile{scc.cpp}
+\cfile{SCC.h}
 
 \subsection{Grafy nieskierowane}
 \subsubsection{Twierdzenie Erd\H{o}sa-Gallaia}
