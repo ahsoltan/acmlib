@@ -1,14 +1,19 @@
+Math:
+(?) Mint template
+(?) NTT template
+Subset convolution
+
 Geometry:
-Planar graph faces
+(?) Point template
 Line intersection
 Segment intersection
+Planar graph faces
 
 Theorems:
 Matrix tree theorem
 
 Modify:
 Shorten Manacher, SuffixArray
-Use PascalCase for struct names
 Add fancy headers to PDF
 (?) Use edge list in Dinic/MCMF
 (?) Reorganize PDF
