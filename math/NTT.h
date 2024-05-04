@@ -1,43 +1,35 @@
 /**
- * Stosowanie: Musi zachodzić $n + m \leq 2^{23}$.
- * Czas: O((n + m) \log (n + m))
+ * Stosowanie: Jeżeli $\mathrm{MOD} = 998244353$ to $n + m \leq 2^{23}$.
+ * Czas: O((n + m)\log (n + m))
  */
-
-const int ROOT = 3;
-void ntt(vector<mint>& a) {
-  int n = ssize(a), d = __lg(n);
-  vector<mint> w(n);
-  mint ww = 1, r = mint(ROOT).pow((MOD - 1) / n);
-  for (int i = 0; i < n / 2; i++) {
-    w[i + n / 2] = ww;
-    ww = ww* r;
-  }
-  for (int i = n / 2 - 1; i > 0; i--) w[i] = w[2 * i];
-  vector<int> rev(n);
-  for (int i = 0; i < n; i++) {
-    rev[i] = (rev[i >> 1] | ((i & 1) << d)) >> 1;
-    if (i < rev[i]) swap(a[i], a[rev[i]]);
-  }
-  for (int i = 1; i < n; i *= 2) {
-    for (int j = 0; j < n; j += 2 * i) {
+template<typename T>
+void ntt(vector<T>& a, bool inv) {
+  int n = ssize(a);
+  vector<T> b(n);
+  for (int i = n / 2; i > 0; i /= 2, swap(a, b)) {
+    T w = T(T::ROOT).pow((T::MOD - 1) / n * i), m = 1;
+    for (int j = 0; j < n; j += 2 * i, m *= w) {
       for (int k = 0; k < i; k++) {
-        mint z = w[i + k] * a[j + k + i];
-        a[j + k + i] = a[j + k] - z;
-        a[j + k] = a[j + k] + z;
+        T u = a[j + k], v = a[j + k + i] * m;
+        b[j / 2 + k] = u + v;
+        b[j / 2 + k + n / 2] = u - v;
       }
     }
   }
+  if (inv) {
+    reverse(a.begin() + 1, a.end());
+    T ni = T(n).inv();
+    for (int i = 0; i < n; i++) a[i] *= ni;
+  }
 }
-vector<mint> conv(vector<mint> a, vector<mint> b) {
-  int n = 1, s = ssize(a) + ssize(b) - 1;
-  while (n < s) n *= 2;
+template<typename T>
+vector<T> conv(vector<T> a, vector<T> b) {
+  int s = ssize(a) + ssize(b) - 1;
+  int n = 1 << (__lg(2 * s - 1));
   a.resize(n); b.resize(n);
-  ntt(a); ntt(b);
-  for (int i = 0; i < n; i++) a[i] = a[i] * b[i];
-  ntt(a);
-  reverse(a.begin() + 1, a.end());
+  ntt(a, false); ntt(b, false);
+  for (int i = 0; i < n; i++) a[i] *= b[i];
+  ntt(a, true);
   a.resize(s);
-  mint ni = mint(n).inv();
-  for (int i = 0; i < s; i++) a[i] = a[i] * ni;
   return a;
 }
