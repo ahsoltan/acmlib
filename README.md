@@ -7,13 +7,34 @@ Geometry
 - Segment intersection
 - Planar graph faces
 
+Graph
+- Directed MST
+
+Math
+- Linear algebra
+  - Berlekamp-Massey
+  - Gauss
+- Subset convolution
+- Polynomial operations
+- Modular arithmetic
+  - Extended GCD
+  - CRT
+  - Floor sum
+  - Mod sum
+  - Min linear mod in range
+  - First linear mod in range
+- Number theory
+  - Pollard Rho
+  - Miller-Rabin
+
 Theorems
 - Matrix tree theorem
 - Burnside lemma
 
 Other
+- Tests!!
 - Shorten Manacher, SuffixArray
-- Reorganize PDF
+- Reorganize PDF (seperate section for theorems?)
 - Use KACTL parser, add fancy headers
 - Different directory structure?
 
