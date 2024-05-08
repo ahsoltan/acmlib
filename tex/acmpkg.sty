@@ -98,7 +98,6 @@
 
 % Chapter
 \newcommand*{\acmchapter}[1]{%
-  \def\@dir{#1}
-  \input{#1/chapter.tex}
-  \def\@dir{.}
+  \def\@dir{code/#1}
+  \input{code/#1/chapter.tex}
 }
