@@ -1,0 +1,22 @@
+name: verify
+
+on: push
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+
+    - name: Install dependencies
+      run: pip3 install -U online-judge-verify-helper
+
+    - name: Run tests
+      env:
+        YUKICODER_TOKEN: ${{ secrets.YUKICODER_TOKEN }}
+        DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
+      run: oj-verify run
