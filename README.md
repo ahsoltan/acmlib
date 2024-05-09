@@ -5,17 +5,19 @@ Geometry
 - Point template
 - Line intersection
 - Segment intersection
-- Planar graph faces
 
 Graph
 - Directed MST
+- Planar graph faces
+- Konig theorem code
 
 Math
 - Linear algebra
   - Berlekamp-Massey
   - Gauss
-- Subset convolution
-- Polynomial operations
+- Numerical
+  - Subset convolution
+  - Polynomial operations
 - Modular arithmetic
   - Extended GCD
   - CRT
@@ -26,6 +28,9 @@ Math
 - Number theory
   - Pollard Rho
   - Miller-Rabin
+
+String
+- Wildcard matching
 
 Theorems
 - Matrix tree theorem
