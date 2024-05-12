@@ -10,9 +10,9 @@ int main() {
   cin.tie(nullptr);
   string s;
   cin >> s;
+  int n = ssize(s);
   auto p = manacher(s);
-  for (int i = 0; i < 2 * ssize(s) - 1; i++) {
-    cout << p[i] << " \n"[i == 2 * ssize(s) - 2];
+  for (int i = 0; i < 2 * n - 1; i++) {
+    cout << p[i] << " \n"[i == 2 * n - 2];
   }
 }
- 

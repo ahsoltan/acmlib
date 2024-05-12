@@ -15,4 +15,3 @@ int main() {
     cout << p[i] << " \n"[i == ssize(s) - 1];
   }
 }
- 

@@ -1,6 +1,5 @@
 /**
  * Stosowanie: `st` -- początek, `ed` -- koniec, `sst` -- posortowany początek.
- * Musi zachodzić $n > 0$.
  * Czas: O((n + q) \log n)
  */
 struct node {
