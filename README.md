@@ -40,8 +40,8 @@ Other
 - Tests!!
 - Shorten Manacher, SuffixArray
 - Reorganize PDF (seperate section for theorems?)
-- Use KACTL parser, add fancy headers
-- Different directory structure?
+- Fancy headers
+- Different directory structure
 
 Sources
 - https://github.com/ecnerwala/cp-book/

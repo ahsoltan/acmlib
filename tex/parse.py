@@ -1,9 +1,7 @@
-# TODO:
-# Actual error reporting
-# Hashing?
-# Includes?
-
-import re, os, argparse
+# Source: KACTL
+import argparse
+import re
+import os
 
 def escape(s):
   # Escape `...` => \src{...}
@@ -32,69 +30,152 @@ def escape(s):
   assert(len(st) == 0)
   return t
 
-def write_title(f, s):
-  f.write(f'\\ctitle{{{s}}}')
+COMMENT_TYPES = [
+  ('/**', '*/'),
+  ("'''", "'''"),
+  ('"""', '"""'),
+]
 
-def write_header(f, name, s):
-  f.write(f'\\cheader{{{name}}}{{{s}}}')
+def find_start_comment(source, start=None):
+  first = (-1, -1, None)
+  for s, e in COMMENT_TYPES:
+    i = source.find(s, start)
+    if i != -1 and (i < first[0] or first[0] == -1):
+      first = (i, i + len(s), e)
 
-def write_separator(f):
-  f.write('\\smallskip\n\\hrule\n')
+  return first
 
-def write_code(f, lang, s):
-  f.write(f'\\begin{{lstlisting}}[language={lang}]\n{s}\\end{{lstlisting}}')
+def processwithcomments(caption, instream, outstream, listingslang):
+  knowncommands = ['Opis', 'Stosowanie', 'Czas']
+  requiredcommands = []
+  includelist = []
+  error = ""
+  warning = ""
+  # Read lines from source file
+  try:
+    lines = instream.readlines()
+  except:
+    error = "Could not read source."
+    lines = []
+  nlines = list()
+  for line in lines:
+    if 'exclude-line' in line:
+      continue
+    if 'include-line' in line:
+      line = line.replace('// ', '', 1)
+    had_comment = "///" in line
+    keep_include = 'keep-include' in line
+    # Remove /// comments
+    line = line.split("///")[0].rstrip()
+    # Remove '#pragma once' lines
+    if line == "#pragma once":
+      continue
+    if had_comment and not line:
+      continue
+    # Check includes
+    include = parse_include(line)
+    if include is not None and not keep_include:
+      includelist.append(include)
+      continue
+    nlines.append(line)
+  # Remove and process multiline comments
+  source = '\n'.join(nlines)
+  nsource = ''
+  start, start2, end_str = find_start_comment(source)
+  end = 0
+  commands = {}
+  while start >= 0 and not error:
+    nsource = nsource.rstrip() + source[end:start]
+    end = source.find(end_str, start2)
+    if end<start:
+      error = "Invalid %s %s comments." % (source[start:start2], end_str)
+      break
+    comment = source[start2:end].strip()
+    end += len(end_str)
+    start, start2, end_str = find_start_comment(source, end)
 
-def process(fin, fout, lang):
-  s = fin.read()
-  code = s.strip()
-  m = {}
-
-  # Parse comment
-  if s.startswith('/**'):
-    headers = ['Opis', 'Stosowanie', 'Czas']
-    now = ''
-    lines = s.split('\n')
-    for i in range(1, len(lines)):
-      if lines[i].startswith(' * '):
-        line = lines[i][3:]
-        for x in headers:
-          if line.startswith(x + ': '):
-            now = x
-            line = line[(len(x) + 2):]
-            break
-        assert(now != '')
-        if now in m:
-          m[now] += '\n' + line
-        else:
-          m[now] = line
+    commentlines = comment.split('\n')
+    command = None
+    value = ""
+    for cline in commentlines:
+      allow_command = False
+      cline = cline.strip()
+      if cline.startswith('*'):
+        cline = cline[1:].strip()
+        allow_command = True
+      ind = cline.find(':')
+      if allow_command and ind != -1 and ' ' not in cline[:ind] and cline[0].isalpha() and cline[0].isupper():
+        if command:
+          if command not in knowncommands:
+            error = error + "Unknown command: " + command + ". "
+          commands[command] = value.lstrip()
+        command = cline[:ind]
+        value = cline[ind+1:].strip()
       else:
-        assert(lines[i].find('*/') != -1)
-        break
-    end = s.find('*/')
-    assert(end != -1)
-    code = s[(end + 2):].strip()
+        value = value + '\n' + cline
+    if command:
+      if command not in knowncommands:
+        error = error + "Unknown command: " + command + ". "
+      commands[command] = value.lstrip()
+  for rcommand in sorted(set(requiredcommands) - set(commands)):
+    error = error + "Missing command: " + rcommand + ". "
+  if end>=0:
+    nsource = nsource.rstrip() + source[end:]
+  nsource = nsource.strip()
 
-  # Verify column width
-  limit = 63
-  for line in code.split('\n'):
-    if len(line) > limit:
-      assert(False)
+  # Produce output
+  out = []
+  if warning:
+    out.append(r"\acmwarning{%s: %s}" % (caption, warning))
+  if error:
+    out.append(r"\acmerror{%s: %s}" % (caption, error))
+  else:
+    generate(caption, commands, includelist, nsource, listingslang, out)
 
-  # Write to file
-  write_title(fout, os.path.basename(fin.name))
-  for key, val in m.items():
-    write_header(fout, key, escape(val))
-  write_separator(fout)
-  write_code(fout, lang, code)
+  for line in out:
+    print(line, file=outstream)
+
+def processraw(caption, instream, outstream, listingslang = 'raw'):
+  try:
+    source = instream.read().strip()
+    out = []
+    generate(caption, {}, [], source, listingslang, out)
+    for line in out:
+      print(line, file=outstream)
+  except:
+    print(r"\acmerror{Could not read source.}", file=outstream)
+
+def parse_include(line):
+  line = line.strip()
+  if line.startswith("#include"):
+    s = line[8:].strip()
+    return s if not s.startswith('<') else None
+  return None
+
+def generate(caption, headers, includes, src, lang, out):
+  out.append(r'\ctitle{%s}' % caption)
+  for key, val in headers.items():
+    out.append(r'\cheader{%s}{%s}' % (key, escape(val)))
+  # TODO: handle includes
+  # TODO: verify column limit (63)
+  out.append(r'\smallskip')
+  out.append(r'\hrule')
+  out.append(r'\begin{lstlisting}[language=%s]' % lang)
+  out.append(src)
+  out.append(r'\end{lstlisting}')
 
 def main():
   parser = argparse.ArgumentParser()
-  parser.add_argument('file', type=argparse.FileType('r'))
-  parser.add_argument('lang', choices=['C++', 'bash', 'make', 'raw'])
-  parser.add_argument('out', type=argparse.FileType('w'))
+  parser.add_argument('input', type=argparse.FileType('r'))
+  parser.add_argument('lang', choices=['C++', 'Python', 'bash', 'make', 'raw'])
+  parser.add_argument('output', type=argparse.FileType('w'))
   args = parser.parse_args()
-  process(args.file, args.out, args.lang)
-  args.out.close()
+  caption = os.path.basename(args.input.name)
+  if args.lang == 'C++' or args.lang == 'Python':
+    processwithcomments(caption, args.input, args.output, args.lang)
+  else: 
+    processraw(caption, args.input, args.output, args.lang)
+  args.output.close()
 
 if __name__ == '__main__':
   main()
