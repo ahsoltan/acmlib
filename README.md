@@ -40,8 +40,8 @@ Other
 - Tests!!
 - Shorten Manacher, SuffixArray
 - Reorganize PDF (seperate section for theorems?)
-- Fancy headers
 - Different directory structure
+- Reorganize code descriptions
 
 Sources
 - https://github.com/ecnerwala/cp-book/

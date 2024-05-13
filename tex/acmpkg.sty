@@ -66,10 +66,25 @@
 \headheight 25pt
 \fancyhead{}
 \fancyhead[RO,LE]{\thepage}
+\fancyhead[LO,RE]{UW}
 \fancyfoot{}
 \fancyheadoffset{0pt}
 \fancyfootoffset{0pt}
 \setlength{\headsep}{5pt}
+
+% Directories
+\def\@basedir{code}
+\def\@builddir{build}
+\def\@texdir{tex}
+\def\@dir{\@basedir}
+
+% Header file list
+\AtBeginDocument{\immediate\write18{trash -f \@builddir/head.tmp}}
+\newmarks\hdrmark
+\fancyhead[CO,CE]{%
+  \immediate\write18{python3 \@texdir/header.py pop "\firstmarks\hdrmark;\botmarks\hdrmark" \@builddir/head.tmp \@builddir/hdr.tmp}
+  \input{\@builddir/hdr.tmp}
+}
 
 % Remove paragraph indentation
 \setlength{\parindent}{0pt}
@@ -95,13 +110,16 @@
 % Code file
 \newcommand*{\cfile}[2][C++]{%
   \typeout{Parsing #2}
-  \immediate\write18{trash -f build/tmp.tex}
-  \immediate\write18{python3 tex/parse.py \@dir/#2 #1 build/tmp.tex}
-  \input{build/tmp.tex}
+  \marks\hdrmark{#2}
+  \immediate\write18{trash -f \@builddir/file.tmp}
+  \immediate\write18{python3 \@texdir/parse.py \@dir/#2 #1 \@builddir/file.tmp}
+  \immediate\write18{python3 \@texdir/header.py push #2 \@builddir/head.tmp}
+  \input{\@builddir/file.tmp}
 }
 
 % Chapter
 \newcommand*{\acmchapter}[1]{%
-  \def\@dir{code/#1}
+  \def\@dir{\@basedir/#1}
   \input{code/#1/chapter.tex}
+  \def\@dir{\@basedir}
 }
