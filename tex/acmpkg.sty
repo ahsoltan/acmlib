@@ -104,11 +104,11 @@
 \newcommand*{\src}[1]{\texttt{\detokenize{#1}}}
 
 % Custom error messages
-\newcommand*{\acmerror}[1]{\PackageError{acmpkg}{#1}}
+\newcommand*{\acmerror}[1]{\PackageError{acmpkg}{#1}{}}
 \newcommand*{\acmwarning}[1]{\PackageWarning{acmpkg}{#1}}
 
-% Code file
-\newcommand*{\cfile}[2][C++]{%
+% Code files
+\newcommand*{\acmimport}[2][C++]{%
   \typeout{Parsing #2}
   \marks\hdrmark{#2}
   \immediate\write18{trash -f \@builddir/file.tmp}

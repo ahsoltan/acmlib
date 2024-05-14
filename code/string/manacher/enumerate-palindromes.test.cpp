@@ -3,7 +3,7 @@
 using namespace std;
 using ll = long long;
 
-#include "Manacher.h"
+#include "main.hpp"
 
 int main() {
   ios_base::sync_with_stdio(false);

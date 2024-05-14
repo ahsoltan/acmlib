@@ -166,15 +166,28 @@ def generate(caption, headers, includes, src, lang, out):
 
 def main():
   parser = argparse.ArgumentParser()
-  parser.add_argument('input', type=argparse.FileType('r'))
+  #parser.add_argument('input', type=argparse.FileType('r'))
+  parser.add_argument('input', type=str)
   parser.add_argument('lang', choices=['C++', 'Python', 'bash', 'make', 'raw'])
   parser.add_argument('output', type=argparse.FileType('w'))
   args = parser.parse_args()
-  caption = os.path.basename(args.input.name)
+
+  try:
+    if os.path.isfile(args.input):
+      instream = open(args.input, 'r')
+    else:
+      FILES = {'C++': 'main.hpp', 'Python': 'main.py'}
+      instream = open(os.path.join(args.input, FILES[args.lang]), 'r')
+  except:
+    args.output.write(r'\acmerror{Invalid import}')
+    args.output.close()
+    return
+
+  caption = os.path.basename(args.input)
   if args.lang == 'C++' or args.lang == 'Python':
-    processwithcomments(caption, args.input, args.output, args.lang)
+    processwithcomments(caption, instream, args.output, args.lang)
   else: 
-    processraw(caption, args.input, args.output, args.lang)
+    processraw(caption, instream, args.output, args.lang)
   args.output.close()
 
 if __name__ == '__main__':

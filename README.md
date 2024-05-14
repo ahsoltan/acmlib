@@ -40,7 +40,6 @@ Other
 - Tests!!
 - Shorten Manacher, SuffixArray
 - Reorganize PDF (seperate section for theorems?)
-- Different directory structure
 - Reorganize code descriptions
 
 Sources

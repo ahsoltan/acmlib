@@ -3,7 +3,7 @@
 using namespace std;
 using ll = long long;
 
-#include "WaveletTree.h"
+#include "main.hpp"
 
 int main() {
   ios_base::sync_with_stdio(false);
@@ -24,7 +24,7 @@ int main() {
   while (q--) {
     int l, r, k;
     cin >> l >> r >> k;
-    cout << t.count(l, r, k + 1) - t.count(l, r, k) << '\n';
+    cout << t.freq(l, r, k) << '\n';
   }
 }
  
