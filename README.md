@@ -3,7 +3,6 @@
 
 Data structures
 - Persistent segtree
-- Line container
 
 Geometry
 - Point template
