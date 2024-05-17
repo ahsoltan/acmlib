@@ -44,9 +44,11 @@ Theorems
 
 Other
 - Tests!!
-- Shorten Manacher, SuffixArray
-- Reorganize PDF (seperate section for theorems?)
-- Reorganize code descriptions
+- Shorter suffix array
+- Separate theorems from code in PDF
+- Rework descriptions
+- Long longs by default in flows
+- .cpp vs .hpp
 
 Sources
 - https://github.com/ecnerwala/cp-book/
