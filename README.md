@@ -1,6 +1,10 @@
 # acmlib
 ![Testing status](https://github.com/ahsoltan/acmlib/actions/workflows/verify.yml/badge.svg)
 
+Data structures
+- Persistent segtree
+- Line container
+
 Geometry
 - Point template
 - Line intersection
@@ -31,6 +35,9 @@ Math
 
 String
 - Wildcard matching
+
+Misc
+- Divide and Conquer DP
 
 Theorems
 - Matrix tree theorem
