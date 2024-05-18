@@ -1,6 +1,6 @@
 /**
  * Opis: Znajduje maksimum funkcji liniowych online.
- * Dla doubli trzeba zmienić `div(a, b) = a/b` oraz `INF = 1/.0`.
+ * Dla doubli `div(a,b) = a/b` oraz `INF = 1/.0`.
  * Czas: O(\log n)
  */
 struct line {
@@ -8,7 +8,7 @@ struct line {
   bool operator<(const line& o) const { return a < o.a; }
   bool operator<(ll x) const { return p < x; }
 };
-struct CHT : multiset<line, less<>> {
+struct line_set : multiset<line, less<>> {
   static const ll INF = LLONG_MAX;
   ll div(ll a, ll b) {
     return a / b - ((a ^ b) < 0 && a % b);

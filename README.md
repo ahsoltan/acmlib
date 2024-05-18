@@ -47,8 +47,9 @@ Other
 - Shorter suffix array
 - Separate theorems from code in PDF
 - Rework descriptions
-- Long longs by default in flows
+- Long longs everywhere by default (MCMF potentials warning!)
 - .cpp vs .hpp
+- Treap lazy propagation
 
 Sources
 - https://github.com/ecnerwala/cp-book/

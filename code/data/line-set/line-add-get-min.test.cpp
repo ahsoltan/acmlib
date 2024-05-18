@@ -10,11 +10,11 @@ int main() {
   cin.tie(nullptr);
   int n, q;
   cin >> n >> q;
-  CHT cht;
+  line_set s;
   for (int i = 0; i < n; i++) {
     ll a, b;
     cin >> a >> b;
-    cht.add(-a, -b);
+    s.add(-a, -b);
   }
   while (q--) {
     int t;
@@ -22,11 +22,11 @@ int main() {
     if (t == 0) {
       ll a, b;
       cin >> a >> b;
-      cht.add(-a, -b);
+      s.add(-a, -b);
     } else {
       ll x;
       cin >> x;
-      cout << -cht.get(x) << '\n';
+      cout << -s.get(x) << '\n';
     }
   }
 }
