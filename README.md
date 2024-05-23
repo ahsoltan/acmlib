@@ -34,6 +34,7 @@ Math
 
 String
 - Wildcard matching
+- Aho-Corasick
 
 Misc
 - Divide and Conquer DP
@@ -50,6 +51,7 @@ Other
 - Long longs everywhere by default (MCMF potentials warning!)
 - .cpp vs .hpp
 - Treap lazy propagation
+- Fix debug template
 
 Sources
 - https://github.com/ecnerwala/cp-book/
