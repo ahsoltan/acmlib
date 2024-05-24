@@ -17,34 +17,5 @@ Przepływ spełnia wymagania jeżeli maksymalnie wypełnia wszystkie krawędzie 
 \subsection{Grafy dwudzielne}
 \acmimport{matching}
 
-\subsubsection{Twierdzenie K\"oniga}
-W grafie dwudzielnym zachodzi
-\begin{compactitem}
-  \item $\mathrm{nk} = \mathrm{pw}$
-  \item $\mathrm{nk} + \mathrm{pk} = n$
-  \item $\mathrm{pw} + \mathrm{nw} = n$
-\end{compactitem}
-oraz
-\begin{compactitem}
-  \item pw to zbiór wierzchołków na brzegu min-cut
-  \item nw to dopełnienie pw
-  \item pk to nk z dodanymi pojedynczymi krawędziami każdego nieskojarzonego wierzchołka
-\end{compactitem}
-
-\subsubsection{Twierdzenie Gale'a-Rysera}
-Ciągi stopni $a_1 \geq \dots \geq a_n$ oraz $b_1, \dots, b_n$ opisują
-prosty graf dwudzielny wtw gdy $\sum a_i = \sum b_i$ oraz dla każdego $1 \leq k \leq n$ zachodzi
-\[
-  \sum_{i=1}^{k} a_i \leq \sum_{i=1}^{n} \min(b_i, k).
-\]
-
 \subsection{Grafy skierowane}
 \acmimport{scc}
-
-\subsection{Grafy nieskierowane}
-\subsubsection{Twierdzenie Erd\H{o}sa-Gallaia}
-Ciąg stopni $d_1 \geq \dots \geq d_n$ opisuje prosty graf wtw gdy
-$\sum d_i$ jest parzysta oraz dla każdego $1 \leq k \leq n$ zachodzi
-\[
-  \sum_{i=1}^{k} d_i \leq k(k - 1) + \sum_{i=k + 1}^{n} \min(d_i, k).
-\]

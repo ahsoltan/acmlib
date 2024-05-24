@@ -14,20 +14,21 @@ Graph
 - Planar graph faces
 - Konig theorem code
 
-Math
+Numerical
 - Linear algebra
   - Berlekamp-Massey
   - Gauss
-- Numerical
-  - Subset convolution
-  - Polynomial operations
+- Subset convolution
+- Polynomial operatorions
+
+Number theory
 - Modular arithmetic
   - CRT
   - Floor sum
   - Mod sum
   - Min linear mod in range
   - First linear mod in range
-- Number theory
+- Primes
   - Pollard Rho
   - Miller-Rabin
 
@@ -44,13 +45,12 @@ Theorems
 
 Other
 - Tests!!
-- Separate theorems from code
-- Rework descriptions
-- Long longs everywhere by default (MCMF potentials warning!)
 - .cpp vs .hpp
-- Treap lazy propagation
 - Fix debug template
 - Use typedefs and constants everywhere
+- Add header ref after source code start?
+- kactl-style codes and descriptions
+- LaTeX penalties
 
 Sources
 - https://github.com/ecnerwala/cp-book/
