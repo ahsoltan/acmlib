@@ -22,7 +22,6 @@ Math
   - Subset convolution
   - Polynomial operations
 - Modular arithmetic
-  - Extended GCD
   - CRT
   - Floor sum
   - Mod sum
