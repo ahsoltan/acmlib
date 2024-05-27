@@ -3,6 +3,7 @@
 
 Data structures
 - Persistent segtree
+- Treap lazy propagation
 
 Geometry
 - Point template
@@ -46,7 +47,6 @@ Theorems
 
 Other
 - Tests!!
-- Fix debug template
 - Use typedefs and constants everywhere
 - kactl-style codes and descriptions
 
