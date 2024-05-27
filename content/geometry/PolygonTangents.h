@@ -4,6 +4,7 @@
  * Punkt $a$ nie może leżeć w ściśłym wnętrzu wielokąta.
  * Czas: O(\log n)
  */
+#pragma once
 
 pair<pt, pt> tangents(const vector<pt>& p, pt a) {
   int n = ssize(p);
