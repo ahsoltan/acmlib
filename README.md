@@ -49,7 +49,6 @@ Other
 - Fix debug template
 - Use typedefs and constants everywhere
 - kactl-style codes and descriptions
-- LaTeX penalties
 
 Sources
 - https://github.com/ecnerwala/cp-book/
