@@ -1,0 +1,46 @@
+\section{Wzory}
+
+\subsection{Grafy}
+\subsubsection{Twierdzenie K\"oniga}
+W grafie dwudzielnym zachodzi
+\begin{compactitem}
+  \item $\mathrm{nk} = \mathrm{pw}$
+  \item $\mathrm{nk} + \mathrm{pk} = n$
+  \item $\mathrm{pw} + \mathrm{nw} = n$
+\end{compactitem}
+oraz
+\begin{compactitem}
+  \item pw to zbiór wierzchołków na brzegu min-cut
+  \item nw to dopełnienie pw
+  \item pk to nk z dodanymi pojedynczymi krawędziami każdego nieskojarzonego wierzchołka
+\end{compactitem}
+
+\subsubsection{Twierdzenie Erd\H{o}sa-Gallaia}
+Ciąg stopni $d_1 \geq \dots \geq d_n$ opisuje prosty graf wtw gdy
+$\sum d_i$ jest parzysta oraz dla każdego $1 \leq k \leq n$ zachodzi
+\[
+  \sum_{i=1}^{k} d_i \leq k(k - 1) + \sum_{i=k + 1}^{n} \min(d_i, k).
+\]
+
+\subsubsection{Twierdzenie Gale'a-Rysera}
+Ciągi stopni $a_1 \geq \dots \geq a_n$ oraz $b_1, \dots, b_n$ opisują
+prosty graf dwudzielny wtw gdy $\sum a_i = \sum b_i$ oraz dla każdego $1 \leq k \leq n$ zachodzi
+\[
+  \sum_{i=1}^{k} a_i \leq \sum_{i=1}^{n} \min(b_i, k).
+\]
+
+\subsubsection{Przepływy z wymaganiami}
+Szukamy przepływu $\leq F$ takiego, że $f_i \geq d_i$ dla każdej krawędzi.
+Tworzymy nowe źródło $s'$ i ujście $t'$.
+Następnie dodajemy krawędzie
+\begin{compactitem}
+  \item $(u_i, t', d_i)$, $(s', v_i, d_i)$, $(u_i, v_i, c_i - d_i)$ zamiast $(u_i, v_i, c_i, d_i)$ 
+  \item $(t, s, F)$
+\end{compactitem}
+Przepływ spełnia wymagania jeżeli maksymalnie wypełnia wszystkie krawędzie $s'$.
+
+\subsection{Optymalizacja}
+\subsubsection{Mnożniki Lagrange'a}
+Jeżeli optymalizujemy $f(x_1, \dots, x_n)$ przy ograniczeniach typu $g_k(x_1, \dots, x_n) = 0$ to
+$x_1, \dots, x_n$ jest ekstremum lokalnym tylko jeżeli gradient $\nabla f(x_1, \dots, x_n)$ jest
+kombinacją liniową gradientów $\nabla g_k(x_1, \dots x_n)$.

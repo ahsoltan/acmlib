@@ -73,7 +73,7 @@
 \setlength{\headsep}{5pt}
 
 % Directories
-\def\@basedir{code}
+\def\@basedir{content}
 \def\@builddir{build}
 \def\@texdir{tex}
 \def\@dir{\@basedir}
@@ -117,9 +117,12 @@
   \input{\@builddir/file.tmp}
 }
 
+% TeX imports
+\newcommand*{\acminput}[1]{\input{\@dir/#1}}
+
 % Chapter
 \newcommand*{\acmchapter}[1]{%
   \def\@dir{\@basedir/#1}
-  \input{code/#1/chapter.tex}
+  \acminput{chapter.tex}
   \def\@dir{\@basedir}
 }

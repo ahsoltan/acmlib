@@ -51,6 +51,7 @@ Other
 - Add header ref after source code start?
 - kactl-style codes and descriptions
 - LaTeX penalties
+- Fix header refs?
 
 Sources
 - https://github.com/ecnerwala/cp-book/

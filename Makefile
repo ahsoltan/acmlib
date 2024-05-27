@@ -1,7 +1,7 @@
 export TEXINPUTS=.:tex/:
 
 main: build
-	pdflatex -shell-escape -output-directory build/ code/main.tex
+	pdflatex -shell-escape -output-directory build/ content/main.tex
 	cp build/main.pdf main.pdf
 
 build:
