@@ -3,7 +3,7 @@
 using namespace std;
 using ll = long long;
 
-#include "string/SuffixArray.h"
+#include "content/string/SuffixArray.h"
 
 int main() {
   ios_base::sync_with_stdio(false);

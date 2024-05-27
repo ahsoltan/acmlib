@@ -3,7 +3,7 @@
 using namespace std;
 using ll = long long;
 
-#include "string/Z.h"
+#include "content/string/Z.h"
 
 int main() {
   ios_base::sync_with_stdio(false);

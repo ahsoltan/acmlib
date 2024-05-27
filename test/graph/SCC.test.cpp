@@ -3,7 +3,7 @@
 using namespace std;
 using ll = long long;
 
-#include "graph/SCC.h"
+#include "content/graph/SCC.h"
 
 int main() {
   ios_base::sync_with_stdio(false);

@@ -3,7 +3,7 @@
 using namespace std;
 using ll = long long;
 
-#include "data/LineSet.h"
+#include "content/data/LineSet.h"
 
 int main() {
   ios_base::sync_with_stdio(false);
