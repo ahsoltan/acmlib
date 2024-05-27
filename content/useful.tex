@@ -1,5 +1,13 @@
 \section{Wzory}
 
+\subsection{Kombinatoryka}
+\subsubsection{Lemat Burnside'a}
+Niech $G$ oznacza grupę symetrii reprezentacji, $S$ zbiór obiektów,
+a $I(\pi)$ ilość punktów stałych $\pi$. Wtedy
+\[
+  |S| = \frac{1}{|G|} \sum_{\pi \in G} I(\pi).
+\]
+
 \subsection{Grafy}
 \subsubsection{Twierdzenie K\"oniga}
 W grafie dwudzielnym zachodzi
@@ -39,8 +47,8 @@ Następnie dodajemy krawędzie
 \end{compactitem}
 Przepływ spełnia wymagania jeżeli maksymalnie wypełnia wszystkie krawędzie $s'$.
 
-\subsection{Optymalizacja}
+\subsection{Analiza}
 \subsubsection{Mnożniki Lagrange'a}
 Jeżeli optymalizujemy $f(x_1, \dots, x_n)$ przy ograniczeniach typu $g_k(x_1, \dots, x_n) = 0$ to
 $x_1, \dots, x_n$ jest ekstremum lokalnym tylko jeżeli gradient $\nabla f(x_1, \dots, x_n)$ jest
-kombinacją liniową gradientów $\nabla g_k(x_1, \dots x_n)$.
+kombinacją liniową gradientów $\nabla g_k(x_1, \dots, x_n)$.

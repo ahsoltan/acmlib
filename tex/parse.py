@@ -45,7 +45,7 @@ def find_start_comment(source, start=None):
 
   return first
 
-def processwithcomments(caption, instream, outstream, listingslang):
+def processwithcomments(caption, head, instream, outstream, listingslang):
   knowncommands = ['Opis', 'Stosowanie', 'Czas']
   requiredcommands = []
   includelist = []
@@ -130,16 +130,16 @@ def processwithcomments(caption, instream, outstream, listingslang):
   if error:
     out.append(r"\acmerror{%s: %s}" % (caption, error))
   else:
-    generate(caption, commands, includelist, nsource, listingslang, out)
+    generate(caption, head, commands, includelist, nsource, listingslang, out)
 
   for line in out:
     print(line, file=outstream)
 
-def processraw(caption, instream, outstream, listingslang = 'raw'):
+def processraw(caption, head, instream, outstream, listingslang = 'raw'):
   try:
     source = instream.read().strip()
     out = []
-    generate(caption, {}, [], source, listingslang, out)
+    generate(caption, head, {}, [], source, listingslang, out)
     for line in out:
       print(line, file=outstream)
   except:
@@ -152,7 +152,7 @@ def parse_include(line):
     return s if not s.startswith('<') else None
   return None
 
-def generate(caption, headers, includes, src, lang, out):
+def generate(caption, head, headers, includes, src, lang, out):
   out.append(r'\ctitle{%s}' % caption)
   for key, val in headers.items():
     out.append(r'\cheader{%s}{%s}' % (key, escape(val)))
@@ -160,19 +160,20 @@ def generate(caption, headers, includes, src, lang, out):
   # TODO: verify column limit (63)
   out.append(r'\smallskip')
   out.append(r'\hrule')
-  out.append(r'\marks\hdrmark{%s}' % caption)
+  out.append(r'\marks\hdrmark{%s}' % head)
   out.append(r'\begin{lstlisting}[language=%s]' % lang)
   out.append(src)
   out.append(r'\end{lstlisting}')
 
 def parse(args):
   caption = os.path.basename(args.input.name)
-  args.head.write(f'{caption}\n')
+  head = os.path.splitext(caption)[0]
+  args.head.write(f'{head}\n')
   args.head.close()
   if args.lang == 'C++' or args.lang == 'Python':
-    processwithcomments(caption, args.input, args.output, args.lang)
+    processwithcomments(caption, head, args.input, args.output, args.lang)
   else: 
-    processraw(caption, args.input, args.output, args.lang)
+    processraw(caption, head, args.input, args.output, args.lang)
   args.output.close()
 
 def pop(args):

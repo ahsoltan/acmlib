@@ -40,15 +40,14 @@ Misc
 - Divide and Conquer DP
 
 Theorems
-- Matrix tree theorem
-- Burnside lemma
+- Kirchoff theorem
+- BEST theorem
 
 Other
 - Tests!!
 - .cpp vs .hpp
 - Fix debug template
 - Use typedefs and constants everywhere
-- Add header ref after source code start?
 - kactl-style codes and descriptions
 - LaTeX penalties
 
