@@ -1,7 +1,8 @@
 /**
- * Stosowanie: $n$ musi być potęgą dwójki.
+ * Opis: Wykonuje splot bitowy. $n$ musi być potęgą dwójki.
  * Czas: O(n \log n)
  */
+#pragma once
 
 void fst(vector<mint>& a, bool inv) {
   int n = ssize(a);

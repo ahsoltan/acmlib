@@ -1,6 +1,8 @@
 /**
+ * Opis: Spójne są posortowane topologicznie.
  * Czas: O(n + m)
  */
+#pragma once
 
 struct SCC {
   int n, cnt = 0;

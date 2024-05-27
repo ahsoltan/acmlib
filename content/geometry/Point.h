@@ -1,3 +1,5 @@
+#pragma once
+
 struct pt {
   ll x, y;
   pt operator+(pt o) const { return {x + o.x, y + o.y}; }

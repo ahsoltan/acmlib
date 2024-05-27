@@ -1,8 +1,9 @@
 /**
- * Stosowanie: Jeżeli są ujemne krawędzie, przed pusczeniem `flow` w `dst`
+ * Opis: Jeżeli są ujemne krawędzie, przed pusczeniem `flow` w `dst`
  * trzeba policzyć najkrótsze ścieżki z `s` i puścić `reduce(t)`.
  * Czas: O(F m \log n)
  */
+#pragma once
 
 #include <ext/pb_ds/priority_queue.hpp>
 ll INF64 = 2e18;

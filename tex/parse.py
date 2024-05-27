@@ -49,7 +49,7 @@ def find_start_comment(source, start=None):
   return first
 
 def processwithcomments(caption, head, instream, outstream, listingslang):
-  knowncommands = ['Opis', 'Stosowanie', 'Czas']
+  knowncommands = ['Opis', 'Czas']
   requiredcommands = []
   includelist = []
   error = ""

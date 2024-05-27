@@ -1,6 +1,8 @@
 /**
+ * Opis: Dinic uproszczony dla grafów dwudzielnych.
  * Czas: O(m \sqrt{n})
  */
+#pragma once
 
 struct matching {
   int n, m;

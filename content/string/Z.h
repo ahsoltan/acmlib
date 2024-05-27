@@ -1,6 +1,9 @@
 /**
+ * Opis: `f[i]` -- największe $k$ takie, że `f[i:i+k)` jest prefiksem `s`.
  * Czas: O(n)
  */
+#pragma once
+
 vector<int> z(const string& s) {
   int n = ssize(s);
   vector<int> f(n);

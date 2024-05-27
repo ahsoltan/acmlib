@@ -1,7 +1,10 @@
 /**
- * Stosowanie: `st` -- początek, `ed` -- koniec, `sst` -- posortowany początek.
+ * Opis: `st` -- początek, `ed` -- koniec, `sst` -- posortowany początek.
+ * Niszczy wartości w przedziale `[st, ed)`.
  * Czas: O((n + q) \log n)
  */
+#pragma once
+
 struct node {
   int lo, hi;
   vector<int> s;

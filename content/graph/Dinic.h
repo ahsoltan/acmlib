@@ -1,6 +1,9 @@
 /**
+ * Opis: Znajduje największy przepływ.
+ * Na niektórych grafach może być szybszy bez skalowania.
  * Czas: O(nm \log U)
  */
+#pragma once
 
 struct dinic {
   struct edge {

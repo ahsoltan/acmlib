@@ -1,7 +1,9 @@
 /**
- * Stosowanie: Usuwa punkty współliniowe.
+ * Opis: Znajduje otoczkę wypukłą w kierunku CCW.
+ * Usuwa punkty współliniowe.
  * Czas: O(n \log n)
  */
+#pragma once
 
 vector<pt> convex_hull(vector<pt> p) {
   if (ssize(p) <= 1) return p;

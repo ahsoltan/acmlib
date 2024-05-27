@@ -1,7 +1,8 @@
 /**
- * Stosowanie: `s.find_by_order(k)` i `s.order_of_key(k)`.
+ * Opis: `s.find_by_order(k)` i `s.order_of_key(k)`.
  * Czas: O(\log n)
  */
+#pragma once
 
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>

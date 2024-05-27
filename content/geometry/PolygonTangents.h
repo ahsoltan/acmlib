@@ -1,5 +1,7 @@
 /**
- * Stosowanie: Wielokąt musi być CCW i $n \geq 3$. Zwraca najbliższe punkty styczne różne od $a$.
+ * Opis: Znajduje najbliższe punkty styczne różne od $a$.
+ * Wielokąt musi być CCW i $n \geq 3$.
+ * Punkt $a$ nie może leżeć w ściśłym wnętrzu wielokąta.
  * Czas: O(\log n)
  */
 

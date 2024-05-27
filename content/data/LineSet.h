@@ -3,6 +3,8 @@
  * Dla doubli `div(a,b) = a/b` oraz `INF = 1/.0`.
  * Czas: O(\log n)
  */
+#pragma once
+
 struct line {
   mutable ll a, b, p;
   bool operator<(const line& o) const { return a < o.a; }

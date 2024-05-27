@@ -1,7 +1,8 @@
 /**
- * Stosowanie: Jeżeli tekst ma znaki inne niż a-z trzeba zmienić inicjalizację.
+ * Opis: Jeżeli tekst ma znaki inne niż `a-z` trzeba zmienić inicjalizację.
  * Czas: O(n \log n)
  */
+#pragma once
 
 vector<int> suffix_array(const string& s) {
   int n = ssize(s);

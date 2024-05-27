@@ -1,6 +1,8 @@
 /**
+ * Opis: `p[i]` -- najdłuższy ścisły sufiks `s[0:i]` który jest prefiksem `s`.
  * Czas: O(n)
  */
+#pragma once
 
 vector<int> kmp(const string& s) {
   int n = ssize(s);

@@ -1,8 +1,10 @@
 /**
- * Stosowanie: Zwraca długość najdłuższego palindromu.
+ * Opis: Znajduje długość najdłuższego palindromu w każdym środku.
  * `p[2 * i]` -- środek w $i$, `p[2 * i + 1]` -- środek między $i$ a $i + 1$.
  * Czas: O(n)
  */
+#pragma once
+
 vector<int> manacher(const string& s) {
   int n = ssize(s);
   string t(2 * n - 1, '#');

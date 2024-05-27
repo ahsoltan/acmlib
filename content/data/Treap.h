@@ -1,6 +1,7 @@
 /**
  * Czas: O(\log n)
  */
+#pragma once
 
 mt19937_64 rng(2137);
 struct node {
