@@ -160,35 +160,53 @@ def generate(caption, headers, includes, src, lang, out):
   # TODO: verify column limit (63)
   out.append(r'\smallskip')
   out.append(r'\hrule')
+  out.append(r'\marks\hdrmark{%s}' % caption)
   out.append(r'\begin{lstlisting}[language=%s]' % lang)
   out.append(src)
   out.append(r'\end{lstlisting}')
 
+def parse(args):
+  caption = os.path.basename(args.input.name)
+  args.head.write(f'{caption}\n')
+  args.head.close()
+  if args.lang == 'C++' or args.lang == 'Python':
+    processwithcomments(caption, args.input, args.output, args.lang)
+  else: 
+    processraw(caption, args.input, args.output, args.lang)
+  args.output.close()
+
+def pop(args):
+  seg = args.data.split(';')
+  if not seg[0]:
+    return
+  lines = [x.strip() for x in args.head.readlines()]
+  first = lines.index(seg[0])
+  last = lines.index(seg[1])
+  sub = lines[first:last + 1]
+  length = len(''.join(sub))
+  font_size = 10 if length <= 150 else 8
+  f = args.output
+  f.write(r'\fontsize{%s}{%s}\textbf{%s}' % (font_size, font_size, r'\enspace{}'.join(sub)))
+  f.close()
+
 def main():
   parser = argparse.ArgumentParser()
-  #parser.add_argument('input', type=argparse.FileType('r'))
-  parser.add_argument('input', type=str)
-  parser.add_argument('lang', choices=['C++', 'Python', 'bash', 'make', 'raw'])
-  parser.add_argument('output', type=argparse.FileType('w'))
+  subparsers = parser.add_subparsers(required=True)
+
+  pparse = subparsers.add_parser('parse')
+  pparse.add_argument('input', type=argparse.FileType('r'))
+  pparse.add_argument('lang', choices=['C++', 'Python', 'bash', 'make', 'raw'])
+  pparse.add_argument('output', type=argparse.FileType('w'))
+  pparse.add_argument('head', type=argparse.FileType('a'))
+  pparse.set_defaults(func=parse)
+
+  ppop = subparsers.add_parser('pop')
+  ppop.add_argument('data', type=str)
+  ppop.add_argument('head', type=argparse.FileType('r'))
+  ppop.add_argument('output', type=argparse.FileType('w'))
+  ppop.set_defaults(func=pop)
   args = parser.parse_args()
-
-  try:
-    if os.path.isfile(args.input):
-      instream = open(args.input, 'r')
-    else:
-      FILES = {'C++': 'main.hpp', 'Python': 'main.py'}
-      instream = open(os.path.join(args.input, FILES[args.lang]), 'r')
-  except:
-    args.output.write(r'\acmerror{Invalid import}')
-    args.output.close()
-    return
-
-  caption = os.path.basename(args.input)
-  if args.lang == 'C++' or args.lang == 'Python':
-    processwithcomments(caption, instream, args.output, args.lang)
-  else: 
-    processraw(caption, instream, args.output, args.lang)
-  args.output.close()
+  args.func(args)
 
 if __name__ == '__main__':
   main()
