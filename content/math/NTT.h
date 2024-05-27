@@ -1,7 +1,11 @@
 /**
- * Stosowanie: Jeżeli $\mathrm{MOD} = 998244353$ to $n + m \leq 2^{23}$.
+ * Opis: Mnoży dwa wielomiany modulo liczba NTT-pierwsza. 
  * Czas: O((n + m)\log (n + m))
  */
+#pragma once
+
+#include "ModInt.h"
+
 template<typename T>
 void ntt(vector<T>& a, bool inv) {
   int n = ssize(a);

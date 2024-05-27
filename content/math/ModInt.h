@@ -1,3 +1,5 @@
+#pragma once
+
 template<int M, int R>
 struct mod {
   static const int MOD = M, ROOT = R;

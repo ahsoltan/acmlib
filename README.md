@@ -28,6 +28,7 @@ Number theory
   - Mod sum
   - Min linear mod in range
   - First linear mod in range
+  - Primitive root
 - Primes
   - Pollard Rho
   - Miller-Rabin
@@ -45,7 +46,6 @@ Theorems
 
 Other
 - Tests!!
-- .cpp vs .hpp
 - Fix debug template
 - Use typedefs and constants everywhere
 - kactl-style codes and descriptions

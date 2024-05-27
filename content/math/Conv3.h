@@ -1,7 +1,12 @@
 /**
- * Stosowanie: $n + m \leq 2^{24}$.
+ * Opis: Mnoży dwa wielomiany.
+ * Musi zachodzić $n + m \leq 2^{24}$ oraz $c_k \leq 5 \cdot 10^{25}$.
  * Czas: O((n + m) \log (n + m))
  */
+#pragma once
+
+#include "NTT.h"
+
 template<typename T>
 vector<T> mconv(const auto& a, const auto& b) {
   auto cp = [&](const auto& v) {
@@ -20,10 +25,10 @@ vector<T> conv3(const vector<T>& a, const vector<T>& b) {
   m2 r02 = m2(m0::MOD).inv(), r12 = m2(m1::MOD).inv();
   vector<T> d(ssize(c0));
   for (int i = 0; i < ssize(c0); i++) {
-    int a = c0[i].x;
-    int b = ((c1[i] - a) * r01).x;
-    int c = (((c2[i] - a) * r02 - b) * r12).x;
-    d[i] = (T(c) * m1::MOD + b) * m0::MOD + a;
+    int x = c0[i].x;
+    int y = ((c1[i] - x) * r01).x;
+    int z = (((c2[i] - x) * r02 - y) * r12).x;
+    d[i] = (T(z) * m1::MOD + y) * m0::MOD + x;
   }
   return d;
 }
