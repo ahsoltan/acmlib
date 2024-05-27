@@ -11,20 +11,23 @@ def escape(s):
   t = ''
   st = []
   i = 0
+  cnt = 0
   while i < len(s):
     if i < len(s) - 1 and s[i:i+2] == 'O(':
+      cnt += 1
       st.append(True)
       t += r'\bigo{'
       i += 2
       continue
-    if s[i] == ')':
+    if cnt > 0 and s[i] == ')':
       assert(len(st) > 0)
       b = st.pop()
       t += '}' if b else ')'
+      cnt -= 1 if b else 0
       i += 1
       continue
     t += s[i]
-    if s[i] == '(':
+    if cnt > 0 and s[i] == '(':
       st.append(False)
     i += 1
   assert(len(st) == 0)
