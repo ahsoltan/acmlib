@@ -15,8 +15,8 @@ pair<P, P> tangents(const vector<P>& p, P a) {
     auto dir = [&](int i) {
       P u = p[i] - a;
       P v = p[i < n - 1 ? i + 1 : 0] - a;
-      int c = sgn(cross(u, v));
-      if (c != 0) return c < 0;
+      D c = cross(u, v);
+      if (sgn(c) != 0) return sgn(c) < 0;
       if (sgn(dot(u, v)) <= 0) return true;
       return sgn(norm(u) - norm(v)) > 0;
     };
