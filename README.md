@@ -47,6 +47,7 @@ Other
 - Tests!!
 - Use typedefs and constants everywhere
 - kactl-style codes and descriptions
+- Fix header on last page and pages without marks
 
 Sources
 - https://github.com/ecnerwala/cp-book/
