@@ -6,7 +6,6 @@ Data structures
 - Treap lazy propagation
 
 Geometry
-- Point template
 - Line intersection
 - Segment intersection
 

@@ -4,6 +4,8 @@
  */
 #pragma once
 
+#include "Point.h"
+
 int half(P a) {
   if (sgn(a.y) < 0) return -1;
   if (sgn(a.y) == 0 && sgn(a.x) >= 0) return 0;
