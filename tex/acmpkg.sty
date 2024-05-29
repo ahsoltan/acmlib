@@ -82,7 +82,7 @@
 \AtBeginDocument{\immediate\write18{trash -f \@builddir/head.tmp}}
 \newmarks\hdrmark
 \fancyhead[CO,CE]{%
-  \immediate\write18{python3 \@texdir/parse.py pop "\firstmarks\hdrmark;\splitbotmarks\hdrmark" \@builddir/head.tmp \@builddir/hdr.tmp}
+  \immediate\write18{python3 \@texdir/generate.py hdr "\firstmarks\hdrmark;\splitbotmarks\hdrmark" \@builddir/head.tmp \@builddir/hdr.tmp}
   \input{\@builddir/hdr.tmp}
 }
 
@@ -111,7 +111,7 @@
 \newcommand*{\acmimport}[2][C++]{%
   \typeout{Parsing #2}
   \immediate\write18{trash -f \@builddir/file.tmp}
-  \immediate\write18{python3 \@texdir/parse.py parse \@dir/#2 #1 \@builddir/file.tmp \@builddir/head.tmp}
+  \immediate\write18{python3 \@texdir/generate.py tex \@dir/#2 #1 \@builddir/file.tmp \@builddir/head.tmp}
   \input{\@builddir/file.tmp}
 }
 

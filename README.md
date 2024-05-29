@@ -45,9 +45,8 @@ Theorems
 
 Other
 - Tests!!
-- Use typedefs and constants everywhere
-- kactl-style codes and descriptions
-- Fix header on last page and pages without marks
+- Fix header on pages without marks
+- Snippet generation
 
 Sources
 - https://github.com/ecnerwala/cp-book/

@@ -1,4 +1,5 @@
 export TEXINPUTS=.:tex/:
+export PYTHONDONTWRITEBYTECODE=1
 
 main: build
 	pdflatex -shell-escape -output-directory build/ content/main.tex
