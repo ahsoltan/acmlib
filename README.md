@@ -11,7 +11,8 @@ Geometry
 Graph
 - Directed MST
 - Planar graph faces
-- Konig theorem code
+- Min vertex cover from matching
+- Rework flows
 
 Numerical
 - Linear algebra
@@ -35,9 +36,11 @@ Number theory
 String
 - Wildcard matching
 - Aho-Corasick
+- Rework suffix array
 
 Misc
 - Divide and Conquer DP
+- Dynamic bitset subset sum
 
 Theorems
 - Kirchoff theorem
