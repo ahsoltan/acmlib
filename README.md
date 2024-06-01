@@ -3,7 +3,6 @@
 
 Data structures
 - Persistent segtree
-- Treap lazy propagation
 
 Geometry
 - Segment intersection
