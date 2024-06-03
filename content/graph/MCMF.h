@@ -1,95 +1,67 @@
 /**
- * Opis: Jeżeli są ujemne krawędzie, przed pusczeniem `flow` w `dst`
- * trzeba policzyć najkrótsze ścieżki z `s` i puścić `reduce(t)`.
+ * Opis: Znajduje największy przepływ o najmniejszym koszcie.
+ * Jeżeli są ujemne krawędzie to przed puszczeniem `flow`
+ * w `pi` trzeba policzyć najkrótsze ścieżki z `s`.
  * Czas: O(F m \log n)
  */
 #pragma once
 
 #include <ext/pb_ds/priority_queue.hpp>
-ll INF64 = 2e18;
+const ll INF64 = 2e18;
 struct MCMF {
   struct edge {
-    int to, rev;
-    int cap;
-    ll cost;
-  };
-  struct cmp {
-    bool operator()(const auto& l, const auto& r) const {
-      return l.second > r.second;
-    }
+    int from, to, rev;
+    ll cap, cost;
   };
   int n;
   vector<vector<edge>> adj;
-  vector<ll> dst;
-  ll c = 0;
-  __gnu_pbds::priority_queue<pair<int, ll>, cmp> q;
-  vector<decltype(q)::point_iterator> its;
-  vector<int> id;
+  vector<ll> dst, pi;
+  __gnu_pbds::priority_queue<pair<ll, int>> q;
+  vector<decltype(q)::point_iterator> it;
+  vector<edge*> p;
   MCMF(int _n) {
     n = _n;
     adj.resize(n);
-    id.resize(n);
+    pi.resize(n);
+    p.resize(n);
   }
-  void add_edge(int u, int v, int cap, int cost) {
-    int i = ssize(adj[u]), j = ssize(adj[v]) + (u == v);
-    adj[u].push_back({v, j, cap, cost});
-    adj[v].push_back({u, i, 0, -cost});
+  void add_edge(int u, int v, ll cap, ll cost, ll rcap = 0) {
+    int i = ssize(adj[u]), j = ssize(adj[v]);
+    adj[u].push_back({u, v, j + (u == v), cap, cost});
+    adj[v].push_back({v, u, i, rcap, -cost});
   }
-  void reduce(int t) {
-    for (int i = 0; i < n; i++) {
-      for (edge& e : adj[i]) {
-        if (dst[i] != INF64 && dst[e.to] != INF64) {
-          e.cost += dst[i] - dst[e.to];
-        }
-      }
-    }
-    c += dst[t];
-  }
-  bool dijkstra(int s, int t) {
-    dst.assign(n, INF64);
-    its.assign(n, q.end());
-    dst[s] = 0;
-    q.push({s, 0});
+  bool path(int s, int t) {
+    dst.assign(n, INF64); it.assign(n, q.end());
+    q.push({dst[s] = 0, s});
     while (!q.empty()) {
-      int u = q.top().first;
-      q.pop();
+      int u = q.top().second; q.pop();
       for (edge& e : adj[u]) {
-        if (e.cap > 0) {
-          ll d = dst[u] + e.cost;
-          if (d < dst[e.to]) {
-            dst[e.to] = d;
-            if (its[e.to] == q.end()) {
-              its[e.to] = q.push({e.to, dst[e.to]});
-            } else {
-              q.modify(its[e.to], {e.to, dst[e.to]});
-            }
-            id[e.to] = e.rev;
+        ll d = dst[u] + pi[u] + e.cost - pi[e.to];
+        if (e.cap && d < dst[e.to]) {
+          dst[e.to] = d, p[e.to] = &e;
+          if (it[e.to] == q.end()) {
+            it[e.to] = q.push({-dst[e.to], e.to});
+          } else {
+            q.modify(it[e.to], {-dst[e.to], e.to});
           }
         }
       }
     }
-    reduce(t);
-    return dst[t] != INF64;
+    for (int i = 0; i < n; i++) {
+      pi[i] = min(pi[i] + dst[i], INF64);
+    }
+    return pi[t] != INF64;
   }
   pair<ll, ll> flow(int s, int t, ll cap) {
-    ll ff = 0;
-    ll cc = 0;
-    while (ff < cap && dijkstra(s, t)) {
-      ll f = cap - ff;
-      for (int i = t; i != s;) {
-        edge& e = adj[i][id[i]];
-        f = min(f, (ll)adj[e.to][e.rev].cap);
-        i = e.to;
+    ll f = 0, c = 0;
+    while (f < cap && path(s, t)) {
+      ll d = cap - f;
+      for (edge* e = p[t]; e; e = p[e->from]) d = min(d, e->cap);
+      for (edge* e = p[t]; e; e = p[e->from]) {
+        e->cap -= d, adj[e->to][e->rev].cap += d;
       }
-      for (int i = t; i != s;) {
-        edge& e = adj[i][id[i]];
-        e.cap += f;
-        adj[e.to][e.rev].cap -= f;
-        i = e.to;
-      }
-      ff += f;
-      cc += f * c;
+      f += d, c += d * pi[t];
     }
-    return {ff, cc};
+    return {f, c};
   }
 };

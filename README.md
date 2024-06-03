@@ -12,3 +12,4 @@ Sources
 - https://mimuw.edu.pl/~ms360974/treningi/ACMLib.pdf
 - https://github.com/tonowak/acmlib
 - https://github.com/maspypy/library
+- https://github.com/Stonefeang/librewoosh
