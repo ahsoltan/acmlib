@@ -27,7 +27,7 @@ def tex(args):
     lines = []
     write(lines, caption, head, file, args.lang)
     if file.warnings:
-      args.output.write(r'\acmwarning{%s}' % file.warning)
+      args.output.write(r'\acmwarning{%s}' % file.warnings)
     args.output.write('\n'.join(lines))
   except FileError as e:
     args.output.write(r'\acmerror{%s}' % str(e))
