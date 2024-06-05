@@ -39,18 +39,19 @@ struct dinic {
   ll flow(int s, int t, ll cap) {
     ll f = 0; q[0] = s;
     for (int b = 62; b >= 0; b--) {
-      lvl.assign(n, 0); it.assign(n, 0);
-      int l = 0, r = lvl[s] = 1;
-      while (l < r && !lvl[t]) {
-        int u = q[l++];
-        for (edge e : adj[u]) {
-          if (!lvl[e.to] && e.cap >> b) {
-            lvl[e.to] = lvl[u] + 1, q[r++] = e.to;
+      do {
+        lvl.assign(n, 0); it.assign(n, 0);
+        int l = 0, r = lvl[s] = 1;
+        while (l < r && !lvl[t]) {
+          int u = q[l++];
+          for (edge e : adj[u]) {
+            if (!lvl[e.to] && e.cap >> b) {
+              lvl[e.to] = lvl[u] + 1, q[r++] = e.to;
+            }
           }
         }
-      }
-      if (!lvl[t]) continue;
-      while (ll d = dfs(s, t, cap)) f += d, cap -= d;
+        while (ll d = dfs(s, t, cap)) f += d, cap -= d;
+      } while (lvl[t]);
     }
     return f;
   }
