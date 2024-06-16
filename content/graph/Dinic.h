@@ -13,11 +13,7 @@ struct dinic {
   int n;
   vector<vector<edge>> adj;
   vector<int> q, lvl, it;
-  dinic(int _n) {
-    n = _n;
-    adj.resize(n);
-    q.resize(n);
-  }
+  dinic(int _n) : n(_n), adj(n), q(n) {}
   void add_edge(int u, int v, ll cap, ll rcap = 0) {
     int i = ssize(adj[u]), j = ssize(adj[v]);
     adj[u].push_back({v, j + (u == v), cap});
@@ -38,21 +34,19 @@ struct dinic {
   }
   ll flow(int s, int t, ll cap) {
     ll f = 0; q[0] = s;
-    for (int b = 62; b >= 0; b--) {
-      do {
-        lvl.assign(n, 0); it.assign(n, 0);
-        int l = 0, r = lvl[s] = 1;
-        while (l < r && !lvl[t]) {
-          int u = q[l++];
-          for (edge e : adj[u]) {
-            if (!lvl[e.to] && e.cap >> b) {
-              lvl[e.to] = lvl[u] + 1, q[r++] = e.to;
-            }
+    for (int b = 62; b >= 0; b--) do {
+      lvl.assign(n, 0); it.assign(n, 0);
+      int l = 0, r = lvl[s] = 1;
+      while (l < r && !lvl[t]) {
+        int u = q[l++];
+        for (edge e : adj[u]) {
+          if (!lvl[e.to] && e.cap >> b) {
+            lvl[e.to] = lvl[u] + 1, q[r++] = e.to;
           }
         }
-        while (ll d = dfs(s, t, cap)) f += d, cap -= d;
-      } while (lvl[t]);
-    }
+      }
+      while (ll d = dfs(s, t, cap)) f += d, cap -= d;
+    } while (lvl[t]);
     return f;
   }
 };
