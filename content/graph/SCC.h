@@ -1,51 +1,33 @@
 /**
- * Opis: Spójne są posortowane topologicznie.
+ * Opis: Znajduje silnie spójne składowe.
+ * `cnt` -- ilość spójnych,
+ * `p[i]` -- numer spójnej w kolejności topologicznej.
  * Czas: O(n + m)
  */
 #pragma once
 
 struct SCC {
-  int n, cnt = 0;
+  int n, t = 0, cnt = 0;
   vector<vector<int>> adj;
-  vector<int> p, low, in;
-  stack<int> st;
-  int tour = 0;
-  SCC(int _n) {
-    n = _n;
-    adj.resize(n);
-    p.resize(n, -1);
-    low.resize(n);
-    in.resize(n, -1);
-  }
-  void add_edge(int u, int v) {
-    adj[u].push_back(v);
-  }
-  void dfs(int u) {
-    low[u] = in[u] = tour++;
-    st.push(u);
-    for (int v : adj[u]) {
-      if (in[v] == -1) {
-        dfs(v);
-        low[u] = min(low[u], low[v]);
-      } else {
-        low[u] = min(low[u], in[v]);
-      }
+  vector<int> val, p, st;
+  SCC(int _n) : n(_n), adj(n), val(n), p(n, -1) {}
+  void add_edge(int u, int v) { adj[u].push_back(v); }
+  int dfs(int u) {
+    int low = val[u] = ++t; st.push_back(u);
+    for (int v : adj[u]) if (p[v] == -1) {
+      low = min(low, val[v] ?: dfs(v));
     }
-    if (low[u] == in[u]) {
-      int v = -1;
-      do {
-        v = st.top();
-        st.pop();
-        in[v] = n;
-        p[v] = cnt;
-      } while (v != u);
+    if (low == val[u]) {
+      for (int x = -1; x != u;) {
+        p[x = st.back()] = cnt, st.pop_back();
+      }
       cnt++;
     }
+    return low;
   }
   void build() {
-    for (int i = 0; i < n; ++i) {
-      if (in[i] == -1) dfs(i);
-    }
+    st.reserve(n);  
+    for (int i = 0; i < n; i++) if (p[i] == -1) dfs(i);
     for (int i = 0; i < n; i++) p[i] = cnt - 1 - p[i];
   }
 };
