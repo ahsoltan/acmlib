@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
 
 #ifdef LOCAL
 auto& operator<<(auto&, pair<auto, auto>);
@@ -19,6 +18,6 @@ void __print(auto... x) { ((cerr << ' ' << x), ...) << endl; }
 #endif
 
 int main() {
-  ios_base::sync_with_stdio(false);
-  cin.tie(nullptr);
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
 }

@@ -1,6 +1,18 @@
 # acmlib
 ![Testing status](https://github.com/ahsoltan/acmlib/actions/workflows/verify.yml/badge.svg)
 
+Biblioteczka
+- [ ] Strona tytułowa
+- [x] Max 25 stron + tytułowa
+- [x] Prawy górny - nr strony, lewy górny - UW
+- [ ] Hasze kodów
+
+Filozofia
+Kody w biblioteczce są ponieważ
+1. nie umiemy ich napisać z głowy (DMST, LCT)
+2. umiemy je napisać z głowy, ale raczej nie optymalnie/najkrócej (FFT, tablica sufiksowa)
+3. umiemy je napisać optymalnie z głowy, ale szybciej będzie przepisać (Treap, geometria)
+
 Struktury danych
 - [ ] gp_hash_table
 - [ ] ordered_set
