@@ -30,14 +30,14 @@ Struktury danych
 Matma
 - [ ] Mint
 - [ ] Silnie i odwrotności
-- [ ] ModMul double
+- [x] ModMul double (T)
 - [ ] Barret
 - [ ] Pierwiastek mod
 - [ ] Ile ax - by <= s, floor sum, mod sum
 - [ ] Sito z bitsetem
 - [ ] Sumy prefiksowe funkcji multiplykatywnej
 - [ ] Zliczanie/Suma liczb pierwszych
-- [ ] Miller rabin
+- [x] Miller rabin
 - [ ] Pollard rho
 - [ ] Ułamek między a i b o najmniejszym mian.
 - [x] Rozszerzony euklides (T)
