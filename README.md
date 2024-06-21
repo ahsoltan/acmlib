@@ -38,7 +38,7 @@ Matma
 - [ ] Sumy prefiksowe funkcji multiplykatywnej
 - [ ] Zliczanie/Suma liczb pierwszych
 - [x] Miller rabin
-- [ ] Pollard rho
+- [x] Pollard rho
 - [ ] Ułamek między a i b o najmniejszym mian.
 - [x] Rozszerzony euklides (T)
 - [x] CRT (T)
