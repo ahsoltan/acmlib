@@ -1,5 +1,5 @@
 /**
- * Opis: Algorytm rho Pollarda.
+ * Opis: Algorytm faktoryzacji rho Pollarda.
  * Czas: O(n^{1/4})
  */
 #pragma once
