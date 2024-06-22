@@ -4,6 +4,7 @@ using namespace std;
 using ll = long long;
 
 #include "content/geometry/AngleCmp.h"
+using P = pt<ll>;
 
 int main() {
   ios_base::sync_with_stdio(0);
