@@ -108,9 +108,9 @@ Grafy
 - [ ] Twierdzenie BEST
 
 Geometria
-- [x] Punkt
+- [x] Punkt (T)
 - [x] Angle cmp
-- [ ] Segment dist, line dist
+- [x] Segment dist, line dist (T)
 - [ ] Przecięcie prostych/odcinków
 - [ ] Środek ciężkości wielokąta
 - [ ] Test czy jest w środku wielokąta
