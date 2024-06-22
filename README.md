@@ -108,8 +108,8 @@ Grafy
 - [ ] Twierdzenie BEST
 
 Geometria
-- [ ] Punkt
-- [ ] Angle cmp
+- [x] Punkt
+- [x] Angle cmp
 - [ ] Segment dist, line dist
 - [ ] Przecięcie prostych/odcinków
 - [ ] Środek ciężkości wielokąta
