@@ -1,3 +1,6 @@
+/**
+ * Opis: Podstawowy szablon do geometrii.
+ */
 #pragma once
 
 template<class T> int sgn(T x) { return (x > 0) - (x < 0); }
@@ -15,8 +18,11 @@ struct pt {
   friend T dot(pt p, pt a, pt b) {
     return dot(a - p, b - p); }
   friend T abs2(pt a) { return a.x * a.x + a.y * a.y; }
-  auto operator<=>(const pt&) const = default;
+  friend T abs(pt a) { return sqrt(abs2(a)); }
+  auto operator<=>(pt o) const {
+    return pair(sgn(x - o.x), sgn(y - o.y)) <=> pair(0, 0); }
+  bool operator==(pt o) const {
+    return sgn(x - o.x) == 0 && sgn(y - o.y) == 0; }
   friend auto& operator<<(auto& o, pt a) {
     return o << '(' << a.x << ", " << a.y << ')'; }
 };
-using P = pt<ll>;
