@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+using ll = long long;
 
 #ifdef LOCAL
 auto& operator<<(auto&, pair<auto, auto>);
