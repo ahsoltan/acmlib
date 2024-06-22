@@ -15,7 +15,7 @@ int main() {
   for (P& p : a) {
     cin >> p.x >> p.y; 
   }
-  sort(a.begin(), a.end(), angle_cmp);
+  sort(a.begin(), a.end(), angle_cmp<P>);
   for (P p : a) {
     cout << p.x << ' ' << p.y << '\n';
   }

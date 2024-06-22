@@ -6,8 +6,9 @@
 
 #include "Point.h"
 
-int half(auto a) { return sgn(a.y) ?: -sgn(a.x); }
-bool angle_cmp(auto a, auto b) {
+template<class P>
+bool angle_cmp(P a, P b) {
+  auto half = [](P p) { return sgn(p.y) ?: -sgn(p.x); };
   int A = half(a), B = half(b);
   return A == B ? sgn(cross(a, b)) > 0 : A < B;
 }
