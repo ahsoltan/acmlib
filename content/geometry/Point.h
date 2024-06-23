@@ -26,3 +26,4 @@ struct pt {
   friend auto& operator<<(auto& o, pt a) {
     return o << '(' << a.x << ", " << a.y << ')'; }
 };
+using P = pt<ll>;

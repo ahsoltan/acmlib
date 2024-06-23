@@ -4,7 +4,6 @@ using namespace std;
 using ll = long long;
 
 #include "content/geometry/AngleCmp.h"
-using P = pt<ll>;
 
 int main() {
   ios_base::sync_with_stdio(0);
@@ -15,7 +14,7 @@ int main() {
   for (P& p : a) {
     cin >> p.x >> p.y; 
   }
-  sort(a.begin(), a.end(), angle_cmp<P>);
+  sort(a.begin(), a.end(), angle_cmp);
   for (P p : a) {
     cout << p.x << ' ' << p.y << '\n';
   }

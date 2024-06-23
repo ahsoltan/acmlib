@@ -6,7 +6,6 @@
 
 #include "Point.h"
 
-template<class P>
 bool angle_cmp(P a, P b) {
   auto half = [](P p) { return sgn(p.y) ?: -sgn(p.x); };
   int A = half(a), B = half(b);
