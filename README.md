@@ -82,7 +82,7 @@ Grafy
 - [ ] 2-SAT
 - [ ] Mosty, cutpointy
 - [ ] Maksymalne kliki
-- [ ] Dinic
+- [x] Dinic (T)
 - [ ] Gomory-Hu
 - [ ] MCMF
 - [ ] Hungarian
