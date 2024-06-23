@@ -114,7 +114,7 @@ Geometria
 - [ ] Przecięcie prostych/odcinków
 - [ ] Środek ciężkości wielokąta
 - [ ] Test czy jest w środku wielokąta
-- [ ] Otoczka wypukła
+- [x] Otoczka wypukła
 - [ ] Suma minkowskiego
 - [ ] Najdalsze punkty na otoczce
 - [ ] Styczne do otoczki
