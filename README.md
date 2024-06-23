@@ -6,7 +6,7 @@ Biblioteczka
 - [x] Max 25 stron + tytułowa
 - [x] Prawy górny - nr strony, lewy górny - UW
 - [ ] Hasze kodów
-- [ ] Makra
+- [x] Makra?
 
 Filozofia
 Kody w biblioteczce są ponieważ
