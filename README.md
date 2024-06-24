@@ -79,7 +79,7 @@ Grafy
 - [ ] Centroidy
 - [ ] Cykl eulera
 - [x] SCC
-- [ ] 2-SAT
+- [x] 2-SAT (TT) 
 - [ ] Mosty, cutpointy
 - [ ] Maksymalne kliki
 - [x] Dinic (T)
