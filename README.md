@@ -145,7 +145,7 @@ Geometria
 
 Teksty
 - [x] KMP (T)
-- [ ] Z
+- [x] Z
 - [ ] Manacher
 - [ ] Duval
 - [ ] Haszowanie
