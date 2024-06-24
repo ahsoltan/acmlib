@@ -108,6 +108,7 @@ Grafy
 - [ ] Twierdzenie BEST
 
 Geometria
+- [ ] Zdecydować postępowanie co do templatów i doubli
 - [x] Punkt (T)
 - [x] Angle cmp
 - [x] Segment dist, line dist (T)
