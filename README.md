@@ -144,7 +144,7 @@ Geometria
 - [ ] Konwersja między postaciami prostych
 
 Teksty
-- [ ] KMP
+- [x] KMP (T)
 - [ ] Z
 - [ ] Manacher
 - [ ] Duval
