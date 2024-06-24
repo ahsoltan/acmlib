@@ -83,7 +83,7 @@ Grafy
 - [ ] Mosty, cutpointy
 - [ ] Maksymalne kliki
 - [x] Dinic (T)
-- [ ] Gomory-Hu
+- [x] Gomory-Hu (T)
 - [ ] MCMF
 - [ ] Hungarian
 - [ ] General matching blossom
