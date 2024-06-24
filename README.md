@@ -78,7 +78,7 @@ Grafy
 - [ ] HLD
 - [ ] Centroidy
 - [ ] Cykl eulera
-- [ ] SCC
+- [x] SCC
 - [ ] 2-SAT
 - [ ] Mosty, cutpointy
 - [ ] Maksymalne kliki
