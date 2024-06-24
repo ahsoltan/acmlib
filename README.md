@@ -84,7 +84,7 @@ Grafy
 - [ ] Maksymalne kliki
 - [x] Dinic (T)
 - [x] Gomory-Hu (T)
-- [ ] MCMF
+- [x] MCMF (T)
 - [ ] Hungarian
 - [ ] General matching blossom
 - [ ] General weighted matching
