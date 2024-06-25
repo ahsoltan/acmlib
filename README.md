@@ -29,7 +29,7 @@ Struktury danych
 - [ ] Wavelet tree
 
 Matma
-- [ ] Mint
+- [x] Mint (T)
 - [ ] Silnie i odwrotności
 - [x] ModMul double (T)
 - [ ] Barret
@@ -52,7 +52,8 @@ Matma
 - [ ] Twierdzenie Kirchoffa
 - [ ] Sherman Morrison
 - [ ] Operacje na wielomianach
-- [ ] NTT, Garner
+- [x] NTT
+- [ ] NTT Garner
 - [ ] Berlekamp-Massey
 - [ ] Simpson
 - [ ] Adaptive simpson
