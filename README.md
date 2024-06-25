@@ -34,7 +34,7 @@ Matma
 - [x] ModMul double (T)
 - [ ] Barret
 - [ ] Pierwiastek mod
-- [ ] Ile ax - by <= s, floor sum, mod sum
+- [ ] Ile ax + by <= s, floor sum, mod sum
 - [ ] Sito z bitsetem
 - [ ] Sumy prefiksowe funkcji multiplykatywnej
 - [ ] Zliczanie/Suma liczb pierwszych
@@ -53,7 +53,7 @@ Matma
 - [ ] Sherman Morrison
 - [ ] Operacje na wielomianach
 - [x] NTT
-- [ ] NTT Garner
+- [x] NTT Garner
 - [ ] Berlekamp-Massey
 - [ ] Simpson
 - [ ] Adaptive simpson
