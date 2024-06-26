@@ -148,7 +148,7 @@ Teksty
 - [x] KMP (T)
 - [x] Z
 - [x] Manacher
-- [ ] Duval
+- [x] Duval
 - [ ] Haszowanie
 - [ ] Reverse Burrows-Wheeler
 - [ ] Aho
