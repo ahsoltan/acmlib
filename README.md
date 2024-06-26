@@ -156,7 +156,7 @@ Teksty
 - [ ] Haszowanie
 - [ ] Reverse Burrows-Wheeler
 - [ ] Aho
-- [ ] Tablica sufiksowa
+- [x] Tablica sufiksowa
 - [ ] Liniowa tablica sufiksowa
 - [ ] Substringi cykliczne
 - [ ] Drzewo palindromów

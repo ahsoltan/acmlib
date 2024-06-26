@@ -1,5 +1,5 @@
 /**
- * Opis: `p[1][i]` -- środek w $i$, `p[0][i]` -- środek między $i - 1$ a $i$.
+ * Opis: `p[1][k]` -- środek w $k$, `p[0][k]` -- środek między $k - 1$ a $k$.
  * Czas: O(n)
  */
 #pragma once
