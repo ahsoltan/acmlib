@@ -20,7 +20,7 @@ Statusy
 
 Struktury danych
 - [ ] gp_hash_table
-- [ ] ordered_set
+- [x] ordered_set
 - [ ] Line container
 - [ ] Sparse table
 - [ ] Lazy segtree
