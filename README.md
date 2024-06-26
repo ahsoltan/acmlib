@@ -8,11 +8,15 @@ Biblioteczka
 - [ ] Hasze kodów
 - [x] Makra?
 
-Filozofia
 Kody w biblioteczce są ponieważ
 1. nie umiemy ich napisać z głowy (DMST, LCT)
 2. umiemy je napisać z głowy, ale raczej nie optymalnie/najkrócej (FFT, tablica sufiksowa)
 3. umiemy je napisać optymalnie z głowy, ale szybciej będzie przepisać (Treap, geometria)
+
+Statusy
+1. nic - przetestowany
+2. T - nieprzetestowany
+3. T* - częściowo przetestowany
 
 Struktury danych
 - [ ] gp_hash_table
@@ -80,7 +84,7 @@ Grafy
 - [ ] Centroidy
 - [ ] Cykl eulera
 - [x] SCC
-- [x] 2-SAT (TT) 
+- [x] 2-SAT (T*) 
 - [ ] Mosty, cutpointy
 - [ ] Maksymalne kliki
 - [x] Dinic (T)

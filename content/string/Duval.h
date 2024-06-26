@@ -9,7 +9,7 @@ vi duval(const string& s) {
   int n = sz(s); vi f;
   for (int i = 0; i < n;) {
     int j = i + 1, k = i;
-    for (; j < n && s[k] <= s[j]; ++j) {
+    for (; j < n && s[k] <= s[j]; j++) {
       if (s[k] < s[j]) k = i;
       else ++k;
     }
