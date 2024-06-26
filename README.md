@@ -147,7 +147,7 @@ Geometria
 Teksty
 - [x] KMP (T)
 - [x] Z
-- [ ] Manacher
+- [x] Manacher
 - [ ] Duval
 - [ ] Haszowanie
 - [ ] Reverse Burrows-Wheeler
