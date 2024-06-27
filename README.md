@@ -76,7 +76,7 @@ Matma
 - [ ] Rozwiązania równania Pella
 - [ ] Sumy potęgowe
 - [ ] Generowanie trójek pitagorejskich
-- [ ] Przedziały równości dzielenia floor/ceil
+- [x] Przedziały równości dzielenia floor/ceil (T*)
 - [ ] XOR basis
 
 Grafy
