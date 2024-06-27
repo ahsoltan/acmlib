@@ -97,9 +97,9 @@ Grafy
 - [ ] Chordal Graph Recognition
 - [ ] Drzewo dominatorów
 - [ ] Kolorowanie krawędzi w D+1
-- [ ] DMST
+- [x] DMST
 - [ ] Link-cut tree
-- [ ] DSU z rollbackami
+- [x] DSU z rollbackami (T)
 - [ ] Dynamic connectivity
 - [ ] Twierdzenie Koniga
 - [ ] Ściany grafu planarnego
