@@ -7,6 +7,7 @@ Biblioteczka
 - [x] Prawy górny - nr strony, lewy górny - UW
 - [ ] Hasze kodów
 - [x] Makra?
+- [ ] Naprawić retardowe penalty
 
 Kody w biblioteczce są ponieważ
 1. nie umiemy ich napisać z głowy (DMST, LCT)
@@ -18,10 +19,13 @@ Statusy
 2. T - nieprzetestowany
 3. T* - częściowo przetestowany
 
+Globalne
+- [ ] Zunifikować INFy
+
 Struktury danych
 - [ ] gp_hash_table
-- [x] ordered_set
-- [ ] Line container
+- [x] ordered_set (T)
+- [x] Line container
 - [ ] Sparse table
 - [ ] Lazy segtree
 - [ ] Persistent segtree
