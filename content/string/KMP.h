@@ -1,4 +1,5 @@
 /**
+ * Opis: `p[k]` -- nadjłuższy ścisły sufiks `s[0, k]` który jest prefiksem `s`.
  * Czas: O(n)
  */
 #pragma once

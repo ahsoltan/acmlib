@@ -1,4 +1,5 @@
 /**
+ * Opis: `f[k]` -- nadjłuższy prefiks `s[k, n)` który jest prefiksem `s`.
  * Czas: O(n)
  */
 #pragma once

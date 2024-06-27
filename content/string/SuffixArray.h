@@ -7,7 +7,7 @@
 
 struct suffix_array {
   vi sa, lcp;
-  suffix_array(string s, int lim = 128) {
+  suffix_array(const string& s, int lim = 128) {
     int n = sz(s) + 1, k = 0, a, b;
     vi x(all(s) + 1), y(n), ws(max(n, lim)), rank(n);
     sa = lcp = y, iota(all(sa), 0);
