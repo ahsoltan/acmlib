@@ -1,3 +1,4 @@
+#define PROBLEM "https://judge.yosupo.jp/problem/enumerate_quotients"
 #include <bits/stdc++.h>
 using namespace std;
 
