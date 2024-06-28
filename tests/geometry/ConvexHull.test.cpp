@@ -42,6 +42,6 @@ int main() {
     }
     a = convex_hull(move(a));
     cout << sz(a) << '\n';
-    for (P p : a) cout << p.x << ' ' << p.y << '\n';
+    for (P p : a) cout << (int)p.x << ' ' << (int)p.y << '\n';
   }
 }
