@@ -159,7 +159,7 @@ Teksty
 - [x] Duval
 - [ ] Haszowanie
 - [ ] Reverse Burrows-Wheeler
-- [ ] Aho
+- [x] Aho (T)
 - [x] Tablica sufiksowa
 - [ ] Liniowa tablica sufiksowa
 - [ ] Substringi cykliczne
