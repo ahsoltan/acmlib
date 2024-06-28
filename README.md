@@ -97,7 +97,7 @@ Grafy
 - [ ] Hungarian
 - [ ] General matching blossom
 - [ ] General weighted matching
-- [ ] Hopcroft-Karp
+- [x] Hopcroft-Karp
 - [ ] Chordal Graph Recognition
 - [ ] Drzewo dominatorów
 - [ ] Kolorowanie krawędzi w D+1
