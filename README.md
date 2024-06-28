@@ -127,7 +127,7 @@ Geometria
 - [x] Otoczka wypukła
 - [ ] Suma minkowskiego
 - [ ] Najdalsze punkty na otoczce
-- [ ] Styczne do otoczki
+- [x] Styczne do otoczki (T)
 - [ ] Przecięcie otoczki z prostą
 - [ ] Przecięcie półpłaszczyzn
 - [ ] Online przecięcie półpłaszczyzn
