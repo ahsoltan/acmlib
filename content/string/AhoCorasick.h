@@ -1,6 +1,6 @@
 /**
  * Opis: Automat prefiksowy wielu tekstów.
- * Czas: O(n \sum)
+ * Czas: O(n \Sigma)
  */
 #pragma once
 

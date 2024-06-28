@@ -159,7 +159,7 @@ Teksty
 - [x] Duval
 - [ ] Haszowanie
 - [ ] Reverse Burrows-Wheeler
-- [x] Aho (T)
+- [ ] Aho
 - [x] Tablica sufiksowa
 - [ ] Liniowa tablica sufiksowa
 - [ ] Substringi cykliczne
@@ -168,6 +168,7 @@ Teksty
 - [ ] Drzewo sufiksowe
 - [ ] Wildcard matching
 - [ ] Znajdowanie przedziału wystąpień w tablicy sufiksowej
+- [ ] Inty zamiast stringów
 
 Inne
 - [ ] Circular LCS
