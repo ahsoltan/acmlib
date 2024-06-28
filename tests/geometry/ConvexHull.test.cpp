@@ -35,13 +35,13 @@ int main() {
     int n;
     cin >> n;
     vector<P> a(n);
-    for (int i = 0; i < n; i++) {
-      cin >> a[i].x >> a[i].y;
+    for (P& p : a) {
+      int x, y;
+      cin >> x >> y;
+      p.x = x; p.y = y;
     }
-    a = convex_hull(a);
+    a = convex_hull(move(a));
     cout << sz(a) << '\n';
-    for (int i = 0; i < sz(a); i++) {
-      cout << a[i].x << ' ' << a[i].y << '\n';
-    }
+    for (P p : a) cout << p.x << ' ' << p.y << '\n';
   }
 }

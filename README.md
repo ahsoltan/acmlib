@@ -117,11 +117,11 @@ Grafy
 - [ ] Twierdzenie BEST
 
 Geometria
-- [ ] Zdecydować postępowanie co do templatów i doubli
+- [x] Zdecydować postępowanie co do templatów i doubli
 - [x] Punkt (T)
 - [x] Angle cmp
 - [x] Segment dist, line dist (T)
-- [ ] Przecięcie prostych/odcinków
+- [x] Przecięcie prostych/odcinków
 - [ ] Środek ciężkości wielokąta
 - [ ] Test czy jest w środku wielokąta
 - [x] Otoczka wypukła

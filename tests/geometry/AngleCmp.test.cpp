@@ -33,10 +33,10 @@ int main() {
   cin >> n;
   vector<P> a(n);
   for (P& p : a) {
-    cin >> p.x >> p.y; 
+    int x, y;
+    cin >> x >> y;
+    p.x = x; p.y = y;
   }
   sort(a.begin(), a.end(), angle_cmp);
-  for (P p : a) {
-    cout << p.x << ' ' << p.y << '\n';
-  }
+  for (P p : a) cout << p.x << ' ' << p.y << '\n';
 }
